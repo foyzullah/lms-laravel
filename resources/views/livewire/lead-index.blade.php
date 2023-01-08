@@ -15,14 +15,14 @@
             <td class="border px-4 py-2 text-center">{{date('F j, Y', strtotime($lead->created_at))}}</td>
             <td class="border px-4 py-2">
                 <div class="flex items-center justify-center">
-                    <a href="{{route('leads.edit',$lead->id)}}">
+                    <a class='mr-2 bg-green-700 text-white p-0.5 rounded' href="{{route('leads.edit',$lead->id)}}">
                         @include('components.icons.edit')
                     </a>
-                    <a href="{{route('leads.show',$lead->id)}}">
+                    <a class='mr-2 bg-green-700 text-white p-0.5 rounded' href="{{route('leads.show',$lead->id)}}">
                         @include('components.icons.eye')
                     </a>
                     <form action="" onsubmit="return confirm('Are you sure?');" wire:submit.prevent='deleteLead({{$lead->id}})'>
-                        <button type="submit">
+                        <button type="submit" class="block bg-green-700 text-white p-0.5 rounded">
                             @include('components.icons.trash')
                         </button>
                     </form>
