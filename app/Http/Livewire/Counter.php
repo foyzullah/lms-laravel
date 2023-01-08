@@ -11,6 +11,7 @@ class Counter extends Component
 
     public function increment()
     {
+        flash()->addSuccess('Increase successfully');
         $this->count++;
     }
     public function render()
