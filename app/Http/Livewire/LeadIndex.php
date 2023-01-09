@@ -11,9 +11,9 @@ class LeadIndex extends Component
     public function render()
     {
 
-        $leds = Lead::paginate(10);
+        $leads = Lead::paginate(10);
         return view('livewire.lead-index', [
-            'leads' => $leds
+            'leads' => $leads
         ]);
     }
 
