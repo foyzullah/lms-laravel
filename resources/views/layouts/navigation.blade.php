@@ -18,12 +18,16 @@
                     <x-nav-link :href="route('admission')" :active="request()->routeIs('admission')">
                         {{ __('Admission') }}
                     </x-nav-link>
-
+                    
                     @if(Auth::user()->can('lead-management'))
-                        <x-nav-link :href="route('leads.index')" :active="request()->routeIs('leads.index')">
-                            {{ __('Leads') }}
-                        </x-nav-link>
+                    <x-nav-link :href="route('leads.index')" :active="request()->routeIs('leads.index')">
+                        {{ __('Leads') }}
+                    </x-nav-link>
                     @endif
+
+                    <x-nav-link :href="route('invoice.index')" :active="request()->routeIs('invoice.index')">
+                        {{ __('Invoice') }}
+                    </x-nav-link>
                 </div>
             </div>
 

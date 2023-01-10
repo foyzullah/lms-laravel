@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\Lead;
+use App\Models\Payment;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -17,6 +18,7 @@ class Admission extends Component
     public $lead_id;
     public $selectedCourse;
     public $course_id;
+    public $payment;
 
     public function render()
     {
@@ -60,12 +62,24 @@ class Admission extends Component
             'quantity'=>1,
             'invoice_id'=> $invoice->id
         ]);
+
+
+        $this->selectedCourse->students()->attach($user->id);
+
+        if(!empty($this->payment)){
+            Payment::create([
+                'amount'=> $this->payment,
+                'invoice_id'=> $invoice->id
+            ]);
+        }
+
         
         $this->selectedCourse = null;
         $this->course_id = null;
         $this->lead_id = null;
         $this->leads = [];
         $this->search = null;
+        $this->payment = null;
 
         flash()->addSuccess('Admissin Successfully Completed');
     }
