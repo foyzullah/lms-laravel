@@ -67,7 +67,7 @@ class Admission extends Component
         $this->leads = [];
         $this->search = null;
 
-        flash()->addSuccess('Book successfully created!');
+        flash()->addSuccess('Admissin Successfully Completed');
     }
 
 
