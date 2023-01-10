@@ -4,7 +4,7 @@
         <button class="lms-btn ml-3">Search</button>
     </form>
 
-    <form wire:submit.privent="admit">
+    <form wire:submit.prevent="admit">
 
         @if (!empty($leads))     
         <div class="mb-4">

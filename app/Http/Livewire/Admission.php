@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\Course;
+use App\Models\Invoice;
+use App\Models\InvoiceItem;
 use App\Models\Lead;
 use App\Models\User;
 use Livewire\Component;
@@ -45,9 +47,26 @@ class Admission extends Component
             'password' => bcrypt('password')
         ]);
 
-        // return redirect(route('users.index'));
-
         $lead->delete();
+        
+        $invoice =Invoice::create([
+            'due_date'=>now()->addDays(7),
+            'user_id'=>$user->id
+        ]);
+        
+        InvoiceItem::create([
+            'name'=>'Course: '. $this->selectedCourse->name,
+            'price'=> $this->selectedCourse->price,
+            'quantity'=>1,
+            'invoice_id'=> $invoice->id
+        ]);
+        
+        $this->selectedCourse = null;
+        $this->course_id = null;
+        $this->lead_id = null;
+        $this->leads = [];
+        $this->search = null;
+
         flash()->addSuccess('Book successfully created!');
     }
 
