@@ -15,7 +15,7 @@ class InvoiceController extends Controller
     {
         //
 
-        return view('invoice.index');
+        return view('user.invoice.index');
     }
 
     /**
@@ -48,6 +48,10 @@ class InvoiceController extends Controller
     public function show($id)
     {
         //
+
+        return view('user.invoice.single',[
+            'invoice_id'=> $id
+        ]);
     }
 
     /**
