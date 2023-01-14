@@ -9,6 +9,11 @@ class Curriculum extends Model
 {
     use HasFactory;
 
+    protected $fillable =[
+        'name',
+        'course_id'
+    ];
+
     public function homeworks()
     {
         return $this->hasMany(HomeWork::class);

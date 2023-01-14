@@ -14,4 +14,8 @@ class InvoiceItem extends Model
         'quantity',
         'invoice_id',
     ];
+
+    public function invoice(){
+        return $this->belongsToMany(Invoice::class, 'invoice_id');
+    }
 }

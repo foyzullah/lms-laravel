@@ -61,15 +61,15 @@ class DatabaseSeeder extends Seeder
 
         Lead::factory(100)->create();
 
-        $course = Course::create([
-            'name' => 'Laravel',
-            'description' => 'Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.',
-            'image' => 'https://laravel.com/img/logomark.min.svg',
-            'user_id' => $teacher->id,
-            'price'=>500
-        ]);
+        // $course = Course::create([
+        //     'name' => 'Laravel',
+        //     'description' => 'Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.',
+        //     'image' => 'https://laravel.com/img/logomark.min.svg',
+        //     'user_id' => $teacher->id,
+        //     'price'=>500
+        // ]);
 
-        Curriculum::factory(10)->create();
+        // Curriculum::factory(10)->create();
     }
 
     private function create_user_with_role($type, $name, $email)
