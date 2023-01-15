@@ -1,5 +1,5 @@
 <div>
-{{$course}}
+{{-- {{$course}} --}}
 
 <div class="container mx-auto">
     <div class="bg-green-400 rounded p-4 mb-4">
@@ -21,19 +21,19 @@
         <td class="border">{{$curriculum->name}}</td>
         <td class="border">
             <div class="flex items-center justify-center">
-                <a class="mr-1" href="">
+                {{-- <a class="mr-1" href="">
                     @include('components.icons.edit')
-                </a>
+                </a> --}}
 
-                <a class="mr-1" href="{{route('invoice.show', $curriculum->id)}}">
+                <a class="mr-1" href="{{route('curriculum.show', $curriculum->id)}}">
                     @include('components.icons.eye')
                 </a>
 
-                <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="invoiceDelete({{$curriculum->id}})">
+                {{-- <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="invoiceDelete({{$curriculum->id}})">
                     <button type="submit">
                         @include('components.icons.trash')
                     </button>
-                </form>
+                </form> --}}
             </div>
         </td>
     </tr>

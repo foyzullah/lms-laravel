@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Invoice::class);
     }
+
+    public function isPresent($curriculum_id){
+        return Attendance::where('user_id', $this->id)->where('curriculum_id', $curriculum_id)->exists();
+    }
 }
