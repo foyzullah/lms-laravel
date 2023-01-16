@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('course', CourseController::class);
     Route::resource('curriculum', CurriculumController::class);
     Route::resource('question', QuestionController::class);
+    Route::resource('quiz', QuizController::class);
 
 
 });
