@@ -14,4 +14,13 @@ class QuestionIndex extends Component
             'questions'=>$questions
         ]);
     }
+
+    public function deleteQuestion($id){
+        $question = Question::findOrFail($id);
+        $question->delete();
+
+        flash()->addSuccess('Question Deleted Successfully');
+
+
+    }
 }
