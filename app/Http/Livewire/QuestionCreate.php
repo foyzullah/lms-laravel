@@ -20,7 +20,7 @@ class QuestionCreate extends Component
     public $option_b;
     public $option_c;
     public $option_d;
-    public $correct_answer;
+    public $correct_answer='a';
 
     public function submitQuestion(){
         Question::create([

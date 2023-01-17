@@ -2,38 +2,33 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Question;
 use App\Models\Quiz;
 use Livewire\Component;
 
 class QuizEdit extends Component
 {
 
-    public $quiz_id;
+    public $quiz;
     public $name;
-
-    public function mount(){
-        $quiz = Quiz::findOrFail($this->quiz_id);
-
-        $this->name = $quiz->name;
-    }
+    // public $questions=[];
+    public $question_id;
 
     public function render()
     {
-        $quiz = Quiz::findOrFail($this->quiz_id);
+        // dd($this->quiz->questions->pluck('id')->toArray());
+        $quiz = Quiz::findOrFail($this->quiz->id);
+        $questions = Question::select(['id', 'name'])->whereNotIn('id', $this->quiz->questions->pluck('id')->toArray())->get();
         return view('livewire.quiz-edit',[
-            'quiz'=> $quiz
+            'quiz'=> $quiz,
+            'questions'=>$questions
         ]);
     }
 
-    public function quizUpdate(){
-        $quiz = Quiz::findOrFail($this->quiz_id);
+    public function addQuestion(){
 
-        $quiz->name = $this->name;
-
-        $quiz->save();
-
+        $this->quiz->questions()->attach($this->question_id);
         flash()->addSuccess('Quiz Updated');
-
-        return redirect(route('quiz.index'));
+        return redirect(route('quiz.edit', $this->quiz->id));
     }
 }

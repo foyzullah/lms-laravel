@@ -22,13 +22,15 @@ class QuizController extends Controller
         
     }
 
-    public function show(){
-        return view('quiz.show');
+    public function show(Quiz $quiz){
+        return view('quiz.show',[
+            'quiz'=>$quiz
+        ]);
     }
 
-    public function edit($id){
+    public function edit(Quiz $quiz){
         return view('quiz.edit', [
-            'quiz_id'=> $id
+            'quiz'=> $quiz
         ]);
     }
 }

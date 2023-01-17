@@ -14,6 +14,7 @@
             <td class="border px-4 py-2 text-center">
                 <div class="flex items-center justify-center">
                     <a class='mr-2 bg-green-700 text-white p-0.5 rounded' href="{{route('quiz.edit', $quiz->id)}}">@include('components.icons.edit')</a>
+                    <a class='mr-2 bg-green-700 text-white p-0.5 rounded' href="{{route('quiz.show', $quiz->id)}}">@include('components.icons.eye')</a>
                     <form action="" onsubmit="return confirm('Are you sure?');" wire:submit.prevent='deleteQuiz({{$quiz->id}})'>
                         <button type="submit" class="block bg-green-700 text-white p-0.5 rounded">
                             @include('components.icons.trash')

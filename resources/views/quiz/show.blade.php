@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <livewire:quiz-edit :quiz="$quiz"/>
+                    <livewire:quiz-show :quiz="$quiz"/>
                 </div>
             </div>
         </div>

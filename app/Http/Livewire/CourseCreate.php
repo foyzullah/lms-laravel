@@ -66,8 +66,6 @@ class CourseCreate extends Component
                     ]);
 
                     $class->save();
-
-
                 }
             }
         }

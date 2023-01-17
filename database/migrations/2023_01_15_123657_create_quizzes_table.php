@@ -20,7 +20,7 @@ return new class extends Migration
         });
 
 
-        Schema::create('quiz_question', function(Blueprint $table){
+        Schema::create('quiz_questions', function(Blueprint $table){
             $table->id();
             $table->unsignedBigInteger('quiz_id');
             $table->unsignedBigInteger('question_id');
