@@ -20,7 +20,20 @@
             <td class="px-4 py-2 border text-center">{{$item->quantity}}</td>
             <td class="px-4 py-2 border text-right">{{number_format($item->price *$item->quantity, 2)}}</td>
         </tr>
+
         @endforeach
+        <tr>
+            <td class="px-4 py-2 border text-right" colspan='3'>Subtotal</td>
+            <td class="px-4 py-2 border text-right">{{number_format($invoice->amount()['total'],2)}}</td>
+        </tr>
+        <tr>
+            <td class="px-4 py-2 border text-right" colspan='3'>Paid</td>
+            <td class="px-4 py-2 border text-right">{{number_format($invoice->amount()['paid'],2)}}</td>
+        </tr>
+        <tr>
+            <td class="px-4 py-2 border text-right" colspan='3'>Due</td>
+            <td class="px-4 py-2 border text-right">{{number_format($invoice->amount()['due'],2)}}</td>
+        </tr>
     </table>
 
     @if($enableAddItem)

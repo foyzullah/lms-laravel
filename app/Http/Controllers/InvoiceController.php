@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -45,12 +46,12 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Invoice $invoice)
     {
         //
 
-        return view('user.invoice.single',[
-            'invoice_id'=> $id
+        return view('user.invoice.payment',[
+            'invoice'=> $invoice
         ]);
     }
 
