@@ -12,6 +12,7 @@
 
                     <livewire:payment-proceed :invoice="$invoice"/>
                     
+                    @if($invoice->amount()['due'] > 0)
                     <h2 class="font-bold mb-2">Add a payment</h2>
                     <form method="post" action="{{route('stripe-payment')}}"> @csrf
                         <div class="flex mb-4">
@@ -31,6 +32,7 @@
                         </div>
                         <button type="submit" class="lms-btn">Pay Now</button>
                     </form>
+                    @endif
                     
                 </div>
             </div>
