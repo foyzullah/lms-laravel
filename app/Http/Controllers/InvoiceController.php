@@ -63,6 +63,10 @@ class InvoiceController extends Controller
     public function edit($id)
     {
         //
+
+        return view('user.invoice.edit',[
+            'invoice_id'=>$id
+        ]);
     }
 
     /**

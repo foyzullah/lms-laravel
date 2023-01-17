@@ -3,6 +3,7 @@
         <tr>
             <th class="border px-4 py-2">ID</th>
             <th class="border px-4 py-2 text-left">User</th>
+            <th class="border px-4 py-2">Items</th>
             <th class="border px-4 py-2">Amount</th>
             <th class="border px-4 py-2">Due</th>
             <th class="border px-4 py-2">Paid</th>
@@ -14,16 +15,17 @@
         <tr>
             <td class="border px-4 py-2 text-center">{{$invoice->id}}</td>
             <td class="border px-4 py-2">{{$invoice->user->name}}</td>
+            <td class="border px-4 py-2 text-center">{{count($invoice->items)}}</td>
             <td class="border px-4 py-2 text-center">{{$invoice->amount()['total']}}</td>
 
-            <td class="border px-4 py-2 text-center">{{$invoice->amount()['paid']}}</td>
-            
             <td class="border px-4 py-2 text-center">{{$invoice->amount()['due']}}</td>
+            
+            <td class="border px-4 py-2 text-center">{{$invoice->amount()['paid']}}</td>
             <td class="border px-4 py-2 text-center">{{$invoice->due_date}}</td>
 
             <td class="border px-4 py-2 text-center">
                 <div class="flex items-center justify-center">
-                    <a class="mr-1" href="">
+                    <a class="mr-1" href="{{route('invoice.edit', $invoice->id)}}">
                         @include('components.icons.edit')
                     </a>
 

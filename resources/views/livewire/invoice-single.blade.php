@@ -13,5 +13,5 @@
             <td class="border px-4 py-2 text-center">{{$invoice_items->quantity}}</td>
         </tr>
     </table> --}}
-    {{$invoice_items}}
+    {{-- {{$invoice_items}} --}}
 </div>
