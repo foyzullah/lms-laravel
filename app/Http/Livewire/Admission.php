@@ -69,7 +69,8 @@ class Admission extends Component
         if(!empty($this->payment)){
             Payment::create([
                 'amount'=> $this->payment,
-                'invoice_id'=> $invoice->id
+                'invoice_id'=> $invoice->id,
+                'transection_id'=>Str::random(8)
             ]);
         }
 

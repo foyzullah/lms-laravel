@@ -39,10 +39,26 @@
         </tr>
     </table>
 
-    <h3 class="font-bold text-lg mb-2">Payments</h3>
-    <ul class="mb-4">
+    {{-- @if (!empty($invoice->payments)) --}}
+    
+    <h3 class="font-bold text-lg mb-2">Payment History</h3>
+    <table class="w-full table-auto mb-4">
+        <tr>
+            <th class="border px-2 py-1">Transection Date</th>
+            <th class="border px-2 py-1">Transection Amount</th>
+            <th class="border px-2 py-1">Transection ID</th>
+            <th class="border px-2 py-1">Action</th>
+        </tr>
         @foreach($invoice->payments as $payment)
-        <li>{{date('F j, Y - g:i:a', strtotime($payment->created_at))}} - ${{number_format($payment->amount, 2)}}</li>
+        <tr>
+            <td class="border px-2 py-2 text-center">{{date('F j, Y - g:i:a', strtotime($payment->created_at))}}</td>
+            <td class="border px-2 py-2 text-center">${{number_format($payment->amount, 2)}}</td>
+            <td class="border px-2 py-2 text-center">{{$payment->transection_id}}</td>
+            <td class="border px-2 py-2 flex justify-center">
+                <button wire:click='refund({{$payment->id}})' class="border px-3 py-1 rounded border-gray-600">Refund</button>
+            </td>
+        </tr>
         @endforeach
-    </ul>
+    </table>
+    {{-- @endif --}}
 </div>
