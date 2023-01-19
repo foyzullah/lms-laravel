@@ -1,8 +1,11 @@
 <div>
-    <div class="bg-gray-300 rounded p-4 mb-4">
-        <h2 class="font-bold">Invoice to:</h2>
-        <h4 class="font-bold">Name: <span class="font-normal">{{$invoice->user->name}}</span> </h4>
-        <h4 class="font-bold">E-mail: <span class="font-normal">{{$invoice->user->email}}</span> </h4>
+    <div class="bg-gray-300 rounded p-4 mb-4 flex justify-between items-center">
+        <div>
+            <h2 class="font-bold">Invoice to:</h2>
+            <h4 class="font-bold">Name: <span class="font-normal">{{$invoice->user->name}}</span> </h4>
+            <h4 class="font-bold">E-mail: <span class="font-normal">{{$invoice->user->email}}</span> </h4>
+        </div>
+        <a href="{{route('invoice-download.show', $invoice->id)}}" class="border border-white px-3 py-2 rounded">Download PDF</a>
     </div>
 
     <table class="w-full table-auto mb-4">
@@ -39,7 +42,7 @@
         </tr>
     </table>
 
-    {{-- @if (!empty($invoice->payments)) --}}
+    @if (count($invoice->payments)!=0)
     
     <h3 class="font-bold text-lg mb-2">Payment History</h3>
     <table class="w-full table-auto mb-4">
@@ -60,5 +63,5 @@
         </tr>
         @endforeach
     </table>
-    {{-- @endif --}}
+    @endif
 </div>

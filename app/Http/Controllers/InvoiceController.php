@@ -53,6 +53,8 @@ class InvoiceController extends Controller
         return view('user.invoice.payment',[
             'invoice'=> $invoice
         ]);
+
+        
     }
 
     /**

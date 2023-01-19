@@ -36,4 +36,6 @@ class PaymentProceed extends Component
 
         return redirect(route('invoice.show', $this->invoice->id));
     }
+
+    
 }
